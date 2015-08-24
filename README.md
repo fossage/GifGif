@@ -5,7 +5,7 @@ as well as create your own using Yahoo's Gifshot library
 (https://github.com/yahoo/gifshot) 
 
 This project was based off of Stephen Grider's awesome React tutorial on Udemy.
-(https://www.udemy.com/learn-and-understand-reactjs/) course on Udemy.com.
+(https://www.udemy.com/learn-and-understand-reactjs/)
 
 ---
 
