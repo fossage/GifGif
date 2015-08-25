@@ -10,18 +10,12 @@ var _ = require('lodash');
 module.exports = Reflux.createStore({
 	listenables: [ Actions ],
 	
-	getImages: function(topicId){
-		// Make helper that can convert topicId to appropriate query string 
-		var queryString = this.queryMaker(topicId);
-		Api.get('gallery/search/?' + queryString)
+	getImages: function(categoryId){
+		// Make helper that can convert categoryId to appropriate query string 
+		var queryString = this.queryMaker(categoryId);
+		Api.get(queryString)
 			.then(function(json){
-				
-				// Here we are using the lodash libraries .reject method to filter out any on the
-				//'image not found' results that we get back from imgur. .reject works similar to map
-				//but will return an array of only the items that meet a specific condition in the callback
-				this.images = _.reject(json.data, function(image){
-					return image.is_album;
-				});
+				this.images = json.data;
 				this.triggerChange();
 			}.bind(this));
 	},
@@ -42,7 +36,7 @@ module.exports = Reflux.createStore({
 	},
 	
 	getImage: function(id){
-		Api.get('gallery/image/' + id)
+		Api.get(id)
 			.then(function(json){
 				// This says 'if our images array already exists, push our newly fetched object into it
 				//otherwise create an array which is initialized with our single image in it.  This allows
@@ -64,15 +58,15 @@ module.exports = Reflux.createStore({
 	},
 
 	// Helper function to generate an appropriate query string based on the topicId
-	queryMaker: function(topicId){
-		switch(topicId){
-			case '1': return 'q=subreddit:funny%20ext:gif';
-			case '2': return 'q=tag:trippy+ext:gif';
-			case '3': return 'q=subreddit:aww+ext:gif';
-			case '4': return 'q=subreddit:reactiongifs+ext:gif';
-			case '5': return 'q=tag:interesting+ext:gif';
-			case '6': return 'q=tag:sports+ext:gif';
-			case '0': return 'q=subreddit:gifs+ext:gif';
+	queryMaker: function(categoryId){
+		switch(categoryId){
+			case '1': return 'search?q=funny';
+			case '2': return 'search?q=aww';
+			case '3': return 'search?q=awesome';
+			case '4': return 'search?q=8-bit';
+			case '5': return 'search?q=rad';
+			case '6': return '';
+			case '0': return '';
 		}
 	}
 });

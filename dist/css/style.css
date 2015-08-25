@@ -1,0 +1,53 @@
+.navbar-right {
+  margin-right: 80px; }
+
+.image-detail .panel-body {
+  text-align: center; }
+
+img, video {
+  max-width: 100%; }
+
+.image-preview {
+  display: inline-block;
+  position: relative;
+  height: 200px;
+  width: 200px; }
+  .image-preview .glyphicon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    opacity: 0.5;
+    color: #fff; }
+  .image-preview img {
+    transition: all 0.3s ease;
+    height: 200px;
+    width: 200px; }
+  .image-preview .inset {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    width: 100%;
+    background-color: #FFF;
+    text-align: center;
+    opacity: 0.9; }
+  .image-preview video {
+    height: 200px;
+    width: 200px;
+    vertical-align: middle;
+    background-color: #000; }
+
+.black {
+  color: black; }
+
+.topic {
+  text-align: center; }
+  .topic .image-preview {
+    animation: fadein 0.65s ease-out; }
+
+@keyframes fadein {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1.0; } }

@@ -4,10 +4,9 @@
 			    INITIALIZATION BOILERPLATE
 *****************************************************/
 var Fetch = require('whatwg-fetch');
-var ApiKeys = require('../keys/imgur_keys');
 
-var rootUrl = 'https://api.imgur.com/3/';
-var apiKey = ApiKeys.key;
+var giphyKey = require('../keys/giphy_key').key;
+var rootUrl = 'http://api.giphy.com/v1/gifs/';
 
 
 /*****************************************************
@@ -16,16 +15,16 @@ var apiKey = ApiKeys.key;
 module.exports = {
 	// This function allows us to simply pass in the category as the url argument
 	//and the funtion handles the rest of the url construction for us
-	get: function(url){
-		return fetch(rootUrl + url, {
-			// A headers configuration object used with fetch
+	get: function(queryString){
+		return fetch(rootUrl + queryString + '&api_key='+ giphyKey, {
 			headers: {
-				'Authorization': 'Client-ID ' + apiKey
+				'Accept': '*'
 			}
 		})
-		// This promise takes in our response.  Note that the response
+		// This will take our response in the form of a promise.  Note that the response
 		//has to be explicitly converted to json otherwise we can't use it
 		.then(function(res){
+			console.log(res);
 			return res.json();
 		})
 	}

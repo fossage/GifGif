@@ -20,7 +20,7 @@ module.exports = Reflux.createStore({
 		// Gets data from the specified url that is returned as a promise
 		//Whenever we successfuly fetch data we set TopicStore.topics to the data
 		//property of our json-ified response. 
-		return Api.get('topics/defaults')
+		return Api.get('funny')
 			.then(function(json){
 				this.topics = json.data
 			}.bind(this));

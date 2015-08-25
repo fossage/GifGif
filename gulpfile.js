@@ -65,10 +65,13 @@ gulp.task('serve', function(done) {
             cb(true)
           } else if(/style.css/.test(filePath)){
             cb(true)
+           } else if(/server\/*/.test(filePath)){
+            cb(true)
           }
         }
       },
-      open: true
+      open: false,
+      reloadPage: 'dist/index.html'
     }));
 });
 

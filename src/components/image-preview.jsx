@@ -28,14 +28,13 @@ module.exports = React.createClass({
 					onMouseEnter={this.handleMouseEnter}
 					onMouseLeave={this.handleMouseLeave}
 					>
-					{this.props.animated && this.state.hovering ? this.video() : this.image()}
-					{this.props.animated && !this.state.hovering ? this.icon() : null }
+					{this.state.hovering ? this.video() : this.image()}
+					{!this.state.hovering ? this.icon() : null }
 				</Link>
 	},
 
 	image: function(){
-		var link = 'http://i.imgur.com/' + this.props.id + 'h.jpeg';
-
+		var link = this.props.images.fixed_height_still.url;
 		return 	<img src={link} />
 	},
 
@@ -43,7 +42,7 @@ module.exports = React.createClass({
 	video: function(){
 		return 	<div className="video-container">
 					<video preload="auto" autoPlay="autoplay" loop="loop" webkit-playsinline>
-						<source src={this.props.mp4} type="video/mp4" />
+						<source src={this.props.images.fixed_height.mp4} type="video/mp4" />
 					</video>
 				</div>
 	},
