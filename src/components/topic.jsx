@@ -24,7 +24,7 @@ module.exports = React.createClass({
 	},
 
 	componentWillMount: function(){
-		Actions.getImages(this.props.params.id);
+		Actions.getImages(this.props.params ? this.props.params.id : "0");
 	},
 	
 	// This gets called every time the componenet receives new properties as opposed to component
@@ -50,7 +50,7 @@ module.exports = React.createClass({
 	//so when we access it in the ImagePreview componenet definition we can just access something like
 	//this.props.name or this.props.url as opposed to this.props.image.name or this.props.image.url	
 	renderImages: function(){
-		return this.state.images.slice(0, 20).map(function(image){
+		return this.state.images.map(function(image){
 			return <ImagePreview key={image.id} {...image} />
 		});
 	}

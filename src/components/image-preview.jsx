@@ -30,7 +30,6 @@ module.exports = React.createClass({
 					>
 					{this.props.animated && this.state.hovering ? this.video() : this.image()}
 					{this.props.animated && !this.state.hovering ? this.icon() : null }
-					{this.state.hovering ? this.inset() : null}
 				</Link>
 	},
 
@@ -51,14 +50,6 @@ module.exports = React.createClass({
 
 	icon: function(){
 		return 	<span className="glyphicon glyphicon-play"></span>
-	},
-
-	inset: function(){
-		return 	<div className="inset">
-					Views: {this.props.view}
-					<br/>
-					Upvotes: {this.props.ups}
-				</div>
 	},
 
 	handleMouseEnter: function(e){

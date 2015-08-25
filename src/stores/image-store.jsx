@@ -13,7 +13,6 @@ module.exports = Reflux.createStore({
 	getImages: function(topicId){
 		// Make helper that can convert topicId to appropriate query string 
 		var queryString = this.queryMaker(topicId);
-		console.log(queryString);
 		Api.get('gallery/search/?' + queryString)
 			.then(function(json){
 				
@@ -67,24 +66,13 @@ module.exports = Reflux.createStore({
 	// Helper function to generate an appropriate query string based on the topicId
 	queryMaker: function(topicId){
 		switch(topicId){
-			case '2':
-				return 'q=subreddit:funny%20ext:gif';
-			case '5':
-				return 'q=tag:awesome+ext:gif';
-			case '8':
-				return 'q=tag:aww+ext:gif';
-			case '11':
-				return 'q=tag:tmyk+ext:gif';
-			case '14':
-				return 'q=tag:storytime+ext:gif';
-			case '17':
-				return 'q=tag:currentevents+ext:gif';
-			case '20': 
-				return 'q=tag:%20art%20OR%20pixel%20ext:%20gif';
-			case '23':
-				return 'q=tag:reaction+ext:gif';
-			default:
-				return '';
+			case '1': return 'q=subreddit:funny%20ext:gif';
+			case '2': return 'q=tag:trippy+ext:gif';
+			case '3': return 'q=subreddit:aww+ext:gif';
+			case '4': return 'q=subreddit:reactiongifs+ext:gif';
+			case '5': return 'q=tag:interesting+ext:gif';
+			case '6': return 'q=tag:sports+ext:gif';
+			case '0': return 'q=subreddit:gifs+ext:gif';
 		}
 	}
 });

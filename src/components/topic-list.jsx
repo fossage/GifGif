@@ -24,15 +24,25 @@ module.exports = React.createClass({
 	//we don't run into errors further down in our renderTopics method if we haven't yet
 	//got data to populate the topics array
 	getInitialState: function(){
+		// Making a static list because using defualt imgur topics doesn't work well with our
+		//api requests to get only gifs. These are tag names or subreddit names that tend to 
+		//contain a lot of gifs that we can use in our API requests
 		return {
-			topics: []
+			topics: [
+				{name: 'Funny', id: 1}, 
+				{name: 'Awesome', id: 2}, 
+				{name: 'Aww', id: 3},
+				{name: 'Reaction', id: 4},
+				{name: 'Interesting', id: 5},
+				{name: 'Sports', id: 6}
+				]
 		}
 	},
 	
 	// This is always ran right before render
-	componentWillMount: function(){
-		Actions.getTopics();
-	},
+	// componentWillMount: function(){
+	// 	Actions.getTopics();
+	// },
 
 	render: function(){
 		return 	<div className="list-group">
@@ -43,7 +53,7 @@ module.exports = React.createClass({
 	// We use .map to generate an array of <li> components which  
 	//React automatically knows to render out one after the other
 	renderTopics: function(){
-		return this.state.topics.slice(0, 4).map(function(topic){
+		return this.state.topics.map(function(topic){
 			return 	<Link to={"topics/" + topic.id} className="list-group-item" key={topic.id}>
 						<h4>{topic.name}</h4>
 						<p>{topic.description}</p>
@@ -53,7 +63,7 @@ module.exports = React.createClass({
 
 	// Reflux.listenTo will automatically pass the event name as the first argument and the second
 	//argument will be whatever data we gave to our TopicStore.trigger method in its second argument
-	onChange: function(event, topics){
-		this.setState({topics: topics})
-	}
+	// onChange: function(event, topics){
+	// 	this.setState({topics: topics})
+	// }
 });

@@ -4,11 +4,9 @@
 *****************************************************/
 var React = require('react');
 var Router = require('react-router');
-var Reflux = require('reflux');
-var Actions = require('../actions.jsx');
-var TopicStore = require('../stores/topic-store');
 var Link = Router.Link;
 
+// React-Bootstrap Navbar components
 var Navbar = require('react-bootstrap').Navbar;
 var Nav = require('react-bootstrap').Nav;
 var DropdownButton = require('react-bootstrap').DropdownButton;
@@ -19,27 +17,26 @@ var MenuItem = require('react-bootstrap').MenuItem;
 	     DEFINING COMPONENT OBJECT TO BE EXPORTED
 *****************************************************/
 module.exports = React.createClass({
-	mixins: [
-		Reflux.listenTo(TopicStore, 'onChange')
-	],
-
 	getInitialState: function(){
 		return {
-			topics: []
+			topics: [
+				{name: 'Funny', id: 1}, 
+				{name: 'Whoa Dude', id: 2}, 
+				{name: 'Aww', id: 3},
+				{name: 'Reaction', id: 4},
+				{name: 'Interesting', id: 5},
+				{name: 'Sports', id: 6}
+			]
 		}
-	},
-	
-	componentWillMount: function(){
-		Actions.getTopics();
 	},
 
 	render: function(){
 		// Note that we use the Link component here with an attribute of 'to' which acts 
 		//very similar to an <a> tag with an 'href' attribute except that it lets ReactRouter
 		//know to update the page without doing a full page refresh when the link is clicked
-		return 	<Navbar brand="Gifl">
+		return 	<Navbar brand={<Link to="/">Giffle</Link>}>
 					<Nav className="nav-right" right>
-						<DropdownButton  eventKey={3} title='Dropdown'>
+						<DropdownButton  eventKey={3} title='Categories'>
 					       {this.renderTopics()}
 						</DropdownButton>
 					</Nav>
@@ -60,12 +57,6 @@ module.exports = React.createClass({
 					</MenuItem>
 		});
 	},
-
-	onChange: function(event, topics){
-		this.setState({
-			topics: topics
-		});
-	}
 
 });
 

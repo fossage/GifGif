@@ -19,16 +19,10 @@ module.exports = Reflux.createStore({
 	getTopics: function(){
 		// Gets data from the specified url that is returned as a promise
 		//Whenever we successfuly fetch data we set TopicStore.topics to the data
-		//property of our json-ified response.  The triggerChange method is then called
-		//which emits an event called 'change' to everything that is listening
+		//property of our json-ified response. 
 		return Api.get('topics/defaults')
 			.then(function(json){
 				this.topics = json.data
-				this.triggerChange();
 			}.bind(this));
 	},
-
-	triggerChange: function(){
-		this.trigger('change', this.topics);
-	}
 });
