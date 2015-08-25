@@ -1,6 +1,8 @@
 /* globals jQuery */
+// var jQuery = require('jquery');
 
 (function($) {
+  console.log($);
   // Selector to select only not already processed elements
   $.expr[":"].notmdproc = function(obj){
     if ($(obj).data("mdproc")) {
@@ -9,6 +11,7 @@
       return true;
     }
   };
+
 
   function _isChar(evt) {
     if (typeof evt.which == "undefined") {

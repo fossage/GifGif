@@ -11,7 +11,10 @@ module.exports = Reflux.createStore({
 	listenables: [ Actions ],
 	
 	getImages: function(topicId){
-		Api.get('topics/' + topicId)
+		// Make helper that can convert topicId to appropriate query string 
+		var queryString = this.queryMaker(topicId);
+		console.log(queryString);
+		Api.get('gallery/search/?' + queryString)
 			.then(function(json){
 				
 				// Here we are using the lodash libraries .reject method to filter out any on the
@@ -59,5 +62,38 @@ module.exports = Reflux.createStore({
 	// Emit a change event for all listeners when we get in new data
 	triggerChange: function(){
 		this.trigger('change', this.images);
+	},
+
+	// Helper function to generate an appropriate query string based on the topicId
+	queryMaker: function(topicId){
+		switch(topicId){
+			case '2':
+				return 'q=subreddit:funny%20ext:gif';
+			case '5':
+				return 'q=tag:awesome+ext:gif';
+			case '8':
+				return 'q=tag:aww+ext:gif';
+			case '11':
+				return 'q=tag:tmyk+ext:gif';
+			case '14':
+				return 'q=tag:storytime+ext:gif';
+			case '17':
+				return 'q=tag:currentevents+ext:gif';
+			case '20': 
+				return 'q=tag:%20art%20OR%20pixel%20ext:%20gif';
+			case '23':
+				return 'q=tag:reaction+ext:gif';
+			default:
+				return '';
+		}
 	}
 });
+
+
+
+
+
+
+
+
+
