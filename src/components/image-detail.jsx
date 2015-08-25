@@ -42,7 +42,9 @@ module.exports = React.createClass({
 							<h4>{this.state.image.title}</h4>
 						</div>
 						<div className="panel-body">
-							{this.renderImage()}
+							<video preload="auto" autoPlay="autoplay" loop="loop" webkit-playsinline>
+								<source src={this.state.image.mp4} type="video/mp4"></source>
+							</video>
 						</div>
 						<div className="panel-footer">
 							<h5>{this.state.image.description}</h5>
@@ -51,16 +53,6 @@ module.exports = React.createClass({
 					<h3>Comments</h3>
 					{this.renderComments()}
 				</div>
-	},
-
-	renderImage: function(){
-		if(this.state.image.animaged){
-			return <video preload="auto" autoPlay="autoplay" loop="loop" webkit-playsinline>
-						<source src={this.state.image.link} type="video/mp4"></source>
-					</video>
-		} else {
-			return <img src={this.state.image.link} />
-		}
 	},
 
 	renderComments: function(){

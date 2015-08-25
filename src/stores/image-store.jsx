@@ -20,7 +20,7 @@ module.exports = Reflux.createStore({
 				//'image not found' results that we get back from imgur. .reject works similar to map
 				//but will return an array of only the items that meet a specific condition in the callback
 				this.images = _.reject(json.data, function(image){
-					return image.is_album;
+					return image.is_album && image.animated;
 				});
 				this.triggerChange();
 			}.bind(this));

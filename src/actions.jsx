@@ -1,5 +1,6 @@
 // Actions act as a sort of proxy to call methods on our store This helps by removing some 
-//level of complexity and helping us avoid rewriting repetitious code in our various methods
+//level of complexity and helping us avoid rewriting repetitious code in our various methods.
+//I believe this is what is referred to in the Flux pattern as the 'action dispatcher'
 /*****************************************************
 			    INITIALIZATION BOILERPLATE
 *****************************************************/
