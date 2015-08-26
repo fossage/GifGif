@@ -47,7 +47,7 @@ function bundle() {
     .bundle()
     .on('error', notify)
     .pipe(source('main.js'))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./dist/js/'))
 }
 bundler.on('update', bundle)
 

@@ -28,15 +28,6 @@ module.exports = Reflux.createStore({
 	getGif: function(id){
 		Api.getOne(id)
 			.then(function(json){
-<<<<<<< HEAD:src/stores/image-store.jsx
-				
-				// Here we are using the lodash libraries .reject method to filter out any on the
-				//'image not found' results that we get back from imgur. .reject works similar to map
-				//but will return an array of only the items that meet a specific condition in the callback
-				this.images = _.reject(json.data, function(image){
-					return image.is_album && image.animated;
-				});
-=======
 				// This says 'if our images array already exists, push our newly fetched object into it
 				//otherwise create an array which is initialized with our single image in it.  This allows
 				//users to copy and paste in a url with a specific image id without having to have populated
@@ -46,7 +37,6 @@ module.exports = Reflux.createStore({
 				} else {
 					this.gifs = [json.data];
 				}
->>>>>>> giphy_api:src/stores/gif-store.jsx
 				this.triggerChange();
 			}.bind(this));
 	},

@@ -9,6 +9,7 @@ var Link = Router.Link;
 // React-Bootstrap Navbar components
 var Navbar = require('react-bootstrap').Navbar;
 var Nav = require('react-bootstrap').Nav;
+var NavItem = require('react-bootstrap').NavItem;
 var DropdownButton = require('react-bootstrap').DropdownButton;
 var MenuItem = require('react-bootstrap').MenuItem;
 
@@ -20,9 +21,12 @@ var categories = require('../utils/category-list').categories;
 module.exports = React.createClass({
 	
 	render: function(){
-		return 	<Navbar brand={<Link to="/">Giffle</Link>}>
-					<Nav className="nav-right" right>
-						<DropdownButton  eventKey={3} title='Categories'>
+		return 	<Navbar inverse brand={<Link id="brand" to="/">GifGif</Link>}>
+					<Nav right eventKey={0}>
+						<li className="nav-item">
+							<Link to="create">Create Gif</Link>
+						</li>
+						<DropdownButton  eventKey={2} title='Categories'>
 					       {this.renderTopics()}
 						</DropdownButton>
 					</Nav>
