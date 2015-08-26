@@ -5,7 +5,7 @@
 *****************************************************/
 var React = require('react');
 var Header = require('./header');
-var Topic = require('./topic');
+var Category = require('./category');
 
 module.exports = React.createClass({
 	render: function(){
@@ -21,7 +21,7 @@ module.exports = React.createClass({
 		if(this.props.children){
 			return this.props.children;
 		} else {
-			return <Topic />
+			return <Category />
 		}
 	}
 })

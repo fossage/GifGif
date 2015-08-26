@@ -1,18 +1,15 @@
-.navbar-right {
-  margin-right: 80px; }
-
-.image-detail .panel-body {
+.gif-detail .panel-body {
   text-align: center; }
 
 img, video {
   max-width: 100%; }
 
-.image-preview {
+.gif-preview {
   display: inline-block;
   position: relative;
   height: 200px;
   width: 200px; }
-  .image-preview .glyphicon {
+  .gif-preview .glyphicon {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -20,11 +17,11 @@ img, video {
     font-size: 50px;
     opacity: 0.5;
     color: #fff; }
-  .image-preview img {
+  .gif-preview img {
     transition: all 0.3s ease;
     height: 200px;
     width: 200px; }
-  .image-preview .inset {
+  .gif-preview .inset {
     position: absolute;
     bottom: 5px;
     left: 0px;
@@ -32,11 +29,14 @@ img, video {
     background-color: #FFF;
     text-align: center;
     opacity: 0.9; }
-  .image-preview video {
+  .gif-preview video {
     height: 200px;
     width: 200px;
     vertical-align: middle;
     background-color: #000; }
+
+.navbar-right {
+  margin-right: 80px; }
 
 .black {
   color: black; }

@@ -13,7 +13,6 @@ var Reflux = require('reflux');
 // The createActions method will take an array of string names and created named methods
 //out of them that we can call in other parts of our program
 module.exports = Reflux.createActions([
-	'getTopics', 
-	'getImages',
-	'getImage'
+	'getGifs',
+	'getGif'
 ]);

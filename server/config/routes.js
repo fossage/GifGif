@@ -1,31 +1,33 @@
 'use strict';
 module.exports = function(app) {
-  	var users = require('../controllers/gifs.js');
+  	var gifs = require('../controllers/gifs.js');
 
 // Gifs
     // Index
-	app.get('/users', function(request, response) { users.index(request, response); });
-	// New
-	app.get('/users/new', function(request, response) { users.create(request, response); });
+	app.get('/gifs/:category', function(req, res) { gifs.index(req, res); });
 	// Show
-	app.get('/users/:id', function(request, response) { users.show(request, response); });
+	app.get('/gif/:id', function(req, res) { gifs.show(req, res); });
+	
+
+	// New
+	app.get('/users/new', function(req, res) { users.create(req, res); });
 	// Edit 
-	app.post('/users/:id/edit', function(request, response) { users.update(request, response); });
+	app.post('/users/:id/edit', function(req, res) { users.update(req, res); });
 	// Create
-	app.post('/users', function(request, response) { users.create(request, response); });	
+	app.post('/users', function(req, res) { users.create(req, res); });	
 	// Destroy app.delete('/users/:id')
-	app.post('/users/:id/destroy', function(request, response) { users.destroy(request, response); });
+	app.post('/users/:id/destroy', function(req, res) { users.destroy(req, res); });
 	// Update app.put/patch('/users/:id') 
-	app.post('/users/:id/update', function(request, response) { users.update(request, response); });
+	app.post('/users/:id/update', function(req, res) { users.update(req, res); });
 
 
 
 // WILDCARD Redirect to Mask unused urls.
-	app.get('/*', function(request, response){
-		response.redirect('/');
+	app.get('/*', function(req, res){
+		res.redirect('/');
 	});
-	app.post('/*', function(request, response){
-		response.redirect('/');
+	app.post('/*', function(req, res){
+		res.redirect('/');
 	});
 
 };
