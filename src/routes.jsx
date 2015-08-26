@@ -15,11 +15,9 @@ var ImageDetail = require('./components/gif-detail');
 /*****************************************************
 			       MAIN CONTENT
 *****************************************************/
-module.exports = (
-	<Router history={new HashHistory} >
-		<Route path="/" component={Main}>
-			<Route path="category/:id" component={Category} />
-			<Route path="gif/:id" component={ImageDetail} />
-		</Route>
-	</Router>
-);
+<Router history={new HashHistory} >
+	<Route path="/" component={Main}>
+		<Route path="category/:id" component={Category} />
+		<Route path="gif/:id" component={ImageDetail} />
+	</Route>
+</Router>
