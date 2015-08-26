@@ -16,6 +16,7 @@ var GifCreator = require('./components/gif-creator');
 /*****************************************************
 			       MAIN CONTENT
 *****************************************************/
+
 module.exports = (
 <Router history={new HashHistory} >
 	<Route path="/" component={Main}>
@@ -25,3 +26,4 @@ module.exports = (
 	</Route>
 </Router>
 );
+
