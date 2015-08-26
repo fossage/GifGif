@@ -47,7 +47,7 @@ function bundle() {
     .bundle()
     .on('error', notify)
     .pipe(source('main.js'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./dist/'))
 }
 bundler.on('update', bundle)
 
@@ -65,10 +65,13 @@ gulp.task('serve', function(done) {
             cb(true)
           } else if(/style.css/.test(filePath)){
             cb(true)
+           } else if(/server\/*/.test(filePath)){
+            cb(true)
           }
         }
       },
-      open: true
+      open: false,
+      reloadPage: 'dist/index.html'
     }));
 });
 
@@ -76,7 +79,7 @@ gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('default', ['build', 'serve', 'sass', 'watch']);
