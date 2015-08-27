@@ -8,8 +8,12 @@
   width: 50%;
   margin: 0 auto; }
 
+.button-container {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center; }
+
 #record-button {
-  margin-left: 43%;
   margin-top: 15px; }
 
 .gif-detail .panel-body {
@@ -17,6 +21,9 @@
 
 img, video {
   max-width: 100%; }
+
+.white {
+  background-color: red; }
 
 .gif-preview {
   display: inline-block;

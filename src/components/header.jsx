@@ -27,14 +27,14 @@ module.exports = React.createClass({
 							<Link to="create">Create Gif</Link>
 						</li>
 						<DropdownButton  eventKey={2} title='Categories'>
-					       {this.renderTopics()}
+					       {this.renderCategories()}
 						</DropdownButton>
 					</Nav>
 				</Navbar>	
 			
 	},
 	
-	renderTopics: function(){
+	renderCategories: function(){
 		return categories.map(function(category){
 			return 	<MenuItem key={category.id}>
 						<Link activeClassName="active" to={"category/" + category.id}>

@@ -4,7 +4,7 @@ module.exports = {
 		{name: "Reaction", id: 2},
 		{name: "Aww", id: 3},
 		{name: "8-Bit", id: 4},
-		{name: "Dancing", id: 5},
+		{name: "Deal With It", id: 5},
 		{name: "Sports", id: 6},
 		{name: "90's", id: 7},
 		{name: "Video Games", id: 8},
@@ -14,7 +14,8 @@ module.exports = {
 		{name: "Art + Design", id: 12},
 		{name: "Nature", id: 13},
 		{name: "Music", id: 14},
-		{name: "Trippy", id: 15}
+		{name: "Trippy", id: 15},
+		{name: "Dancing", id: 16}
 	],
 
 	queryMaker: function(categoryId){
@@ -23,7 +24,7 @@ module.exports = {
 			case '2': return 'reaction';
 			case '3': return 'cute+animals';
 			case '4': return '8-bit';
-			case '5': return 'dancing';
+			case '5': return 'deal+with+it';
 			case '6': return 'sports';
 			case '7': return '90s';
 			case '8': return 'video+games';
@@ -34,6 +35,7 @@ module.exports = {
 			case '13': return 'nature';
 			case '14': return 'music';
 			case '15': return 'trippy';
+			case '16': return 'dancing';
 			case '0': return 'trending';
 		}
 	}

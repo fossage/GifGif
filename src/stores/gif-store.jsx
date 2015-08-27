@@ -26,7 +26,7 @@ module.exports = Reflux.createStore({
 	},
 
 	getGif: function(id){
-		Api.getOne(id)
+		Api.show(id)
 			.then(function(json){
 				// This says 'if our images array already exists, push our newly fetched object into it
 				//otherwise create an array which is initialized with our single image in it.  This allows

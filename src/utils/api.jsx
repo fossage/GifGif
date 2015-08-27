@@ -18,7 +18,7 @@ module.exports = {
 		})
 	},
 
-	getOne: function(queryString){
+	show: function(queryString){
 		return fetch('/gif/' + queryString)
 			.then(function(res){
 				return res.json();

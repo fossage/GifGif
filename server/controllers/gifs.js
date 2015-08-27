@@ -27,6 +27,7 @@ module.exports = (function() {
 		// Return all gifs for a particular category
 		index: function(req, res){
 			var query;
+			
 			if(req.params.category === 'trending'){
 				query = 'trending?';
 			} else {

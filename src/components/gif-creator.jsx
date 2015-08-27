@@ -1,44 +1,87 @@
 var React = require('react');
 var GifShot = require('../../gifshot/build/gifshot.js');
-var UpdateProgressBar = require('./update-progress-bar');
+var Reflux = require('reflux');
+var GifCreatorStore = require('../stores/gif-creator-store');
+
+//Components
 var Button = require('react-bootstrap').Button;
+var UpdateProgressBar = require('./update-progress-bar');
+var TextInput = require('./gif-text-input');
+var Select = require('./gif-font-color-input');
 
 console.log(GifShot);
 
 module.exports = React.createClass({
+	mixins: [
+		Reflux.listenTo(GifCreatorStore, 'onChange')
+	],
+
 	getInitialState: function(){
 		return {
 			src: '',
-			recorded: false
+			recording: 'Begin Recording'
 		}
 	},
 
+	getDefaultProps: function(){
+		return {
+			text: null,
+			fontColor: '#fff'
+		}
+	},
+
+	onChange: function(event, text){
+		this.props.text = text;
+	},
+
 	render: function(){
-		return 	<div>
-					<div className="gifshot-image-preview"></div>
-					<div className="placeholder-div">
-						<img src={this.state.src} />
-              		</div>
-              		<UpdateProgressBar />
-					<div className="button-container">
-						<Button 
-							id="record-button" 
-							bsStyle="success" 
-							onClick={this.createGif} 
-							>
-							{this.state.recorded ? 'Re-record' : 'Begin Recording'}
-						</Button>
+		return 	<div className="row">
+					<div className="col-md-3">
+						<TextInput />
+						<hr/>
+						<Select />
+					</div>
+					<div className="col-md-6">
+						<div className="gifshot-image-preview"></div>
+						<div className="placeholder-div">
+							<img src={this.state.src} />
+	              		</div>
+	              		<UpdateProgressBar />
+						<div className="button-container">
+							<Button 
+								id="record-button" 
+								bsStyle={this.state.recording == "Recording..." ? "danger" : "success"}
+								onClick={this.createGif} 
+								>
+								{this.state.recording}
+							</Button>
+						</div>
 					</div>
 				</div>
 	},
 
 	createGif: function(){
-		GifShot.createGIF({numFrames: 50}, function (obj) {
+		this.setState({recording: 'Recording...'})
+		GifShot.createGIF({
+				numFrames: 50, 
+				text:this.props.text,
+				fontColor: this.props.fontColor
+			}, 
+			function (obj) {
 		    if (!obj.error) {
-		    	console.log(obj);
-		    	this.setState({recorded: true})
+		    	this.setState({recording: 'Re-record'})
 		        this.setState({src: obj.image});
 		    }
 		}.bind(this));
 	},
 })
+
+
+
+
+
+
+
+
+
+

@@ -15,5 +15,7 @@ var Reflux = require('reflux');
 //out of them that we can call in other parts of our program
 module.exports = Reflux.createActions([
 	'getGifs',
-	'getGif'
+	'getGif',
+	'setGifText',
+	'setGifTextColor'
 ]);
