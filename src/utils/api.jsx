@@ -4,8 +4,6 @@
 			    INITIALIZATION BOILERPLATE
 *****************************************************/
 var Fetch = require('whatwg-fetch');
-
-var giphyKey = require('../keys/giphy_key').key;
 var rootUrl = 'http://api.giphy.com/v1/gifs/';
 
 
