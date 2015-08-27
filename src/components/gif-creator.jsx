@@ -1,19 +1,16 @@
 var React = require('react');
 var GifShot = require('../../gifshot/build/gifshot.js');
 var UpdateProgressBar = require('./update-progress-bar');
+var Button = require('react-bootstrap').Button;
+
 console.log(GifShot);
 
 module.exports = React.createClass({
 	getInitialState: function(){
 		return {
-			progress: 0,
-			src: ''
+			src: '',
+			recording: false
 		}
-	},
-
-	componentWillMount: function(){
-		this.createGif();
-		// this.updateProgress();
 	},
 
 	render: function(){
@@ -23,6 +20,15 @@ module.exports = React.createClass({
 						<img src={this.state.src} />
               		</div>
               		<UpdateProgressBar />
+					<div className="button-container">
+						<Button 
+							id="record-button" 
+							bsStyle="success" 
+							onClick={this.createGif} 
+							>
+							Begin Recording
+						</Button>
+					</div>
 				</div>
 	},
 
@@ -30,9 +36,8 @@ module.exports = React.createClass({
 		GifShot.createGIF({numFrames: 50}, function (obj) {
 		    if (!obj.error) {
 		    	console.log(obj);
+		    	this.setState({recording: true})
 		        this.setState({src: obj.image});
-		    } else {
-		    	console.log(obj.error);
 		    }
 		}.bind(this));
 	}

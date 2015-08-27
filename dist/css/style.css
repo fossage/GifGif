@@ -8,6 +8,10 @@
   width: 50%;
   margin: 0 auto; }
 
+#record-button {
+  margin-left: 43%;
+  margin-top: 15px; }
+
 .gif-detail .panel-body {
   text-align: center; }
 
@@ -50,6 +54,7 @@ img, video {
 
 #brand {
   color: #00d8ff; }
+
 
 .black {
   color: black; }
