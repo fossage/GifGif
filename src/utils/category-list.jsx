@@ -34,7 +34,7 @@ module.exports = {
 			case '13': return 'nature';
 			case '14': return 'music';
 			case '15': return 'trippy';
-			case '0': return 'technology';
+			case '0': return 'trending';
 		}
 	}
 }

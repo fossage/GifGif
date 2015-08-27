@@ -9,7 +9,6 @@ module.exports = React.createClass({
 	getInitialState: function(){
 		return {
 			progress: 0,
-			recording: false
 		}
 	},
 
@@ -20,7 +19,7 @@ module.exports = React.createClass({
 
 	render: function(){
 		return 	<ProgressBar
-					className={this.state.progress > 99 ? 'hidden' : ''} 
+					className={this.state.progress > 119 ? 'hidden' : ''} 
 					id="progress-bar" 
 					active 
 					now={this.state.progress} 
@@ -32,10 +31,10 @@ module.exports = React.createClass({
 		var count = 0;
 		setInterval(function(){
 			count++;
-			if(count > 100){
+			if(count > 60){
 				return;
 			}
-			this.setState({progress: count});	
-		}.bind(this), 72)
+			this.setState({progress: count * 2});	
+		}.bind(this), 85)
 	}
 });

@@ -6,9 +6,7 @@ module.exports = (function() {
 	var keyString = '&api_key=' + giphy_key;
 	var limit = '&limit=100'
 
-	// Boilerplate function to fire off our api request from the backend using the Request package.
-	//Its written with this wrapper so we can define it here, and reuse it for each call below,
-	//otherwise we have to redifine it in each method.
+	// Helper function to fire off API request
 	function requestWrapper(options, res){
 		function callback(error, response, body) {
 	  		if (!error && response.statusCode == 200) {
@@ -25,10 +23,18 @@ module.exports = (function() {
 		/*****************************************************
 					         INDEX
 		*****************************************************/
+		
 		// Return all gifs for a particular category
 		index: function(req, res){
+			var query;
+			if(req.params.category === 'trending'){
+				query = 'trending?';
+			} else {
+				query = 'search?q=' + req.params.category;
+			}
+
 			var options = {
-				url: rootUrl + 'search?q=' + req.params.category + keyString + limit,
+				url: rootUrl + query + keyString + limit,
 				headers: {
 					'User-Agent': 'request'
 				}

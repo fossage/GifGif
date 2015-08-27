@@ -9,7 +9,7 @@ module.exports = React.createClass({
 	getInitialState: function(){
 		return {
 			src: '',
-			recording: false
+			recorded: false
 		}
 	},
 
@@ -26,7 +26,7 @@ module.exports = React.createClass({
 							bsStyle="success" 
 							onClick={this.createGif} 
 							>
-							Begin Recording
+							{this.state.recorded ? 'Re-record' : 'Begin Recording'}
 						</Button>
 					</div>
 				</div>
@@ -36,9 +36,9 @@ module.exports = React.createClass({
 		GifShot.createGIF({numFrames: 50}, function (obj) {
 		    if (!obj.error) {
 		    	console.log(obj);
-		    	this.setState({recording: true})
+		    	this.setState({recorded: true})
 		        this.setState({src: obj.image});
 		    }
 		}.bind(this));
-	}
+	},
 })
