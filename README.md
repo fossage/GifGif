@@ -15,7 +15,7 @@ Before running starting up the project you'll have to remove the 'giphy_key' req
 Then run:
 
 ```
-	> git clone git@github.com:StephenGrider/ReactStarter.git
+	> git clone https://github.com/fossage/gifl.git
 	> cd ReactStarter
 	> npm install
 	> git clone https://github.com/yahoo/gifshot.git
