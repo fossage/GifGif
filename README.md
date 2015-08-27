@@ -16,7 +16,7 @@ Then run:
 
 ```
 	> git clone https://github.com/fossage/gifl.git
-	> cd ReactStarter
+	> cd gifl
 	> npm install
 	> git clone https://github.com/yahoo/gifshot.git
 	> gulp
