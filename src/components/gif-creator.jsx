@@ -9,29 +9,23 @@ var UpdateProgressBar = require('./update-progress-bar');
 var TextInput = require('./gif-text-input');
 var Select = require('./gif-font-color-input');
 
-console.log(GifShot);
-
 module.exports = React.createClass({
 	mixins: [
-		Reflux.listenTo(GifCreatorStore, 'onChange')
+		Reflux.listenTo(GifCreatorStore, 'onChange'),
 	],
 
 	getInitialState: function(){
 		return {
 			src: '',
-			recording: 'Begin Recording'
-		}
-	},
-
-	getDefaultProps: function(){
-		return {
+			recording: 'Begin Recording',
 			text: null,
 			fontColor: '#fff'
 		}
 	},
 
-	onChange: function(event, text){
-		this.props.text = text;
+	onChange: function(event, gifProps){
+		this.setState({text: gifProps.text});
+		this.setState({color: gifProps.color});
 	},
 
 	render: function(){
@@ -62,13 +56,17 @@ module.exports = React.createClass({
 
 	createGif: function(){
 		this.setState({recording: 'Recording...'})
+		console.log(this.state.color);
 		GifShot.createGIF({
 				numFrames: 50, 
-				text:this.props.text,
-				fontColor: this.props.fontColor
+				fontColor: this.state.color,
+				text:this.state.text,
+				gifWidth: 300,
+				gifHeight: 300
 			}, 
 			function (obj) {
 		    if (!obj.error) {
+		    	console.log(obj);
 		    	this.setState({recording: 'Re-record'})
 		        this.setState({src: obj.image});
 		    }

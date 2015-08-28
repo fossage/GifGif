@@ -4,7 +4,7 @@
 *****************************************************/
 var Api = require('../utils/api');
 var Reflux = require('reflux');
-var Actions = require('../actions');
+var Actions = require('../actions/api-actions');
 var _ = require('lodash');
 var queryMaker = require('../utils/category-list').queryMaker;
 

@@ -1,7 +1,7 @@
 var React = require('react');
 var Reflux = require('reflux');
 var GifStore = require('../stores/gif-store');
-var Actions = require('../actions');
+var Actions = require('../actions/api-actions');
 
 module.exports = React.createClass({
 	mixins: [

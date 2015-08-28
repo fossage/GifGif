@@ -4,7 +4,7 @@
 *****************************************************/
 var React = require('react');
 var Reflux = require('reflux');
-var Actions = require('../actions.jsx');
+var Actions = require('../actions/api-actions');
 var GifStore = require('../stores/gif-store');
 var GifPreview = require('../components/gif-preview');
 

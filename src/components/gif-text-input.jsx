@@ -2,7 +2,7 @@
 
 var React = require('react');
 var Input = require('react-bootstrap').Input;
-var SetGifTextAction = require('../actions').setGifText;
+var SetGifTextAction = require('../actions/gif-creator-actions').setGifText;
 
 module.exports = React.createClass({
 	getInitialState: function() {
