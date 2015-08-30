@@ -9,6 +9,7 @@ var server = require('gulp-server-livereload');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
+// var babelify = require("babelify");
 
 var notify = function(error) {
   var message = 'In: ';

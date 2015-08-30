@@ -2,10 +2,6 @@ var React = require('react');
 var ProgressBar = require('react-bootstrap').ProgressBar;
 
 module.exports = React.createClass({
-	// componentWillMount: function(){
-	// 	this.updateProgress();
-	// },
-
 	getInitialState: function(){
 		return {
 			progress: 0,

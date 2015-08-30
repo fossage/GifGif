@@ -11,12 +11,21 @@ module.exports = React.createClass({
 	    };
 	},
 
+	componentDidMount: function() {
+		var button = document.getElementById('record-button');
+    	button.addEventListener('click', this.updateText);
+  	},
+
 	handleChange: function() {
 	    this.setState({
 	      	value: this.refs.input.getValue()
 	    }, function(){
 	    	SetGifTextAction(this.state.value);
 	    });
+	},
+
+	updateText: function(){
+		this.setState({value: ''});
 	},
 
 	render: function(){

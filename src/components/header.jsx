@@ -18,8 +18,7 @@ var categories = require('../utils/category-list').categories;
 /*****************************************************
 	     DEFINING COMPONENT OBJECT TO BE EXPORTED
 *****************************************************/
-module.exports = React.createClass({
-	
+module.exports = React.createClass({	
 	render: function(){
 		return 	<Navbar inverse brand={<Link id="brand" to="/">GifGif</Link>}>
 					<Nav right eventKey={0}>

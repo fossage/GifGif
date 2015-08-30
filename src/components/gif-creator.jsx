@@ -28,6 +28,25 @@ module.exports = React.createClass({
 		this.setState({color: gifProps.color});
 	},
 
+	createGif: function(){
+		this.setState({recording: 'Recording...'})
+		GifShot.createGIF({
+				numFrames: 50, 
+				fontColor: this.state.color,
+				fontSize: '25px',
+				text:this.state.text,
+				gifWidth: 300,
+				gifHeight: 300
+			}, 
+			function (obj) {
+		    if (!obj.error) {
+		    	console.log(obj);
+		    	this.setState({recording: 'Re-record'})
+		        this.setState({src: obj.image});
+		    }
+		}.bind(this));
+	},
+
 	render: function(){
 		return 	<div className="row">
 					<div className="col-md-3">
@@ -37,7 +56,7 @@ module.exports = React.createClass({
 					</div>
 					<div className="col-md-6">
 						<div className="gifshot-image-preview"></div>
-						<div className="placeholder-div">
+						<div className="placeholder-div card">
 							<img src={this.state.src} />
 	              		</div>
 	              		<UpdateProgressBar />
@@ -52,26 +71,7 @@ module.exports = React.createClass({
 						</div>
 					</div>
 				</div>
-	},
-
-	createGif: function(){
-		this.setState({recording: 'Recording...'})
-		console.log(this.state.color);
-		GifShot.createGIF({
-				numFrames: 50, 
-				fontColor: this.state.color,
-				text:this.state.text,
-				gifWidth: 300,
-				gifHeight: 300
-			}, 
-			function (obj) {
-		    if (!obj.error) {
-		    	console.log(obj);
-		    	this.setState({recording: 'Re-record'})
-		        this.setState({src: obj.image});
-		    }
-		}.bind(this));
-	},
+	}
 })
 
 

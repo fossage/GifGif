@@ -7,6 +7,8 @@ var React = require('react');
 var Header = require('./header');
 var Category = require('./category');
 
+// var Auth = require('./auth0-lock.jsx');
+
 module.exports = React.createClass({
 	render: function(){
 		return 	<div>

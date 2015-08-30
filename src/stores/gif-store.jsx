@@ -41,12 +41,10 @@ module.exports = Reflux.createStore({
 			}.bind(this));
 	},
 
-	// The .findWhere method takes a collecion of data as the first argument and returns the first
-	//matched based on the object passed into the second argument, so this says return the first
-	//result in this collection where the key 'id' equals the id property that we passed in
+	// Returns the first result in this collection where the key 'id' equals the id property
 	find: function(id){
 		var image = _.findWhere(this.gifs, {id: id});
-		// This block says if we have this image, return it, otherwise run a method to get the image
+		// If we have this image, return it, otherwise run a method to get the image
 		//and return null to let the caller finish its execution instead of waiting for a response
 		if(image){
 			return image;
