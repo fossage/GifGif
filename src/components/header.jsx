@@ -26,6 +26,9 @@ module.exports = React.createClass({
 						<li className="nav-item">
 							<Link to="create">Create Gif</Link>
 						</li>
+						<li className="nav-item">
+							<Link to="login">Login</Link>
+						</li>
 						<DropdownButton  eventKey={2} title='Categories'>
 					       {this.renderCategories()}
 						</DropdownButton>
