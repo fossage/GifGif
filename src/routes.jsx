@@ -21,6 +21,17 @@ reactMixin(Login.prototype, React.addons.LinkedStateMixin);
 /*****************************************************
 			       MAIN CONTENT
 *****************************************************/
+// var routes = (
+// 		<Route path="/" component={Main}>
+// 			<Route path="login" component={Login} />
+// 			<Route path="category/:id" component={Category} />
+// 			<Route path="gif/:id" component={GifDetail} />
+// 			<Route path="create" component={GifCreator} />
+// 		</Route>
+// );
+
+// var router = Router.create({routes});
+
 
 module.exports = (
 <Router history={new HashHistory} >

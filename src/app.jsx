@@ -17,9 +17,9 @@ Api.get('topics/defaults');
 RouterContainer.set(Routes);
 
 var jwt = localStorage.getItem('jwt');
-if(jwt){
-	LoginActions.loginUser(jwt);
-}
+// if(jwt){
+// 	LoginActions.loginUser(jwt);
+// }
 
 
 React.render(Routes, document.querySelector('.container'));

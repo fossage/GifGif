@@ -8,25 +8,24 @@ var LoginActions = require('../actions/login-actions');
 
 module.exports = {
 	login: function(username, password){
-		console.log(username, password);
-		return this.handleAuth(when(fetch('/sessions/create', {
-			method: 'post', 
+		return this.handleAuth(fetch('/sessions/create', {
+			method: 'post',
 			headers: {
 			    'Accept': 'application/json',
 			    'Content-Type': 'application/json'
-			},
+			}, 
 			body: JSON.stringify({
-				username: username, 
+				user_name: username, 
 				password: password
 			})
-		})));
+		}));
 	}, 
 
 	logout: function(){
 		LoginActions.logoutUser();
 	},
 
-	signup: function(username, password, extra){
+	register: function(username, password, email){
 		return this.handleAuth(when(fetch('/users', {
 			method: 'post',
 			headers: {
@@ -34,9 +33,9 @@ module.exports = {
 			    'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				username: username, 
+				user_name: username, 
 				password: password,
-				extra: extra
+				email: email
 			})
 		})));
 	},
@@ -44,9 +43,7 @@ module.exports = {
 	handleAuth: function(loginPromise){
 		return loginPromise
 			.then(function(response){
-				var jwt = response.id_token;
-				LoginActions.loginUser(jwt);
-				return true;
+				return response.json();
 			});
 	}
 }
