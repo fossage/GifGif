@@ -1,6 +1,6 @@
-var React = require('react');
-var Input = require('react-bootstrap').Input;
-var SetGifTextColor= require('../actions/gif-creator-actions').setGifTextColor;
+var React 			= require('react'),
+	Input 			= require('react-bootstrap').Input,
+	SetGifTextColorAction = require('../actions/gif-creator-actions').setGifTextColor;
 
 module.exports = React.createClass({
 	getInitialState: function(){
@@ -10,7 +10,7 @@ module.exports = React.createClass({
 	},
 
 	handleChange: function(event){
-		SetGifTextColor(event.target.value);
+		SetGifTextColorAction(event.target.value);
 	},
 
 	render: function(){

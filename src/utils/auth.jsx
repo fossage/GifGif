@@ -8,7 +8,7 @@ var LoginActions = require('../actions/login-actions');
 
 module.exports = {
 	login: function(username, password){
-		return this.handleAuth(fetch('/sessions/create', {
+		return this.handleAuth(when(fetch('/sessions/create', {
 			method: 'post',
 			headers: {
 			    'Accept': 'application/json',
@@ -18,7 +18,7 @@ module.exports = {
 				user_name: username, 
 				password: password
 			})
-		}));
+		})));
 	}, 
 
 	logout: function(){
@@ -45,7 +45,7 @@ module.exports = {
 			.then(function(response){
 				return response.json();
 			});
-	}
+	},
 }
 
 

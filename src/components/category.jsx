@@ -2,11 +2,11 @@
 /*****************************************************
 			    INITIALIZATION BOILERPLATE
 *****************************************************/
-var React = require('react');
-var Reflux = require('reflux');
-var Actions = require('../actions/api-actions');
-var GifStore = require('../stores/gif-store');
-var GifPreview = require('../components/gif-preview');
+var React 		= require('react'),
+	Reflux 		= require('reflux'),
+	Actions 	= require('../actions/api-actions'),
+	GifStore 	= require('../stores/gif-store'),
+	GifPreview 	= require('../components/gif-preview');
 
 
 /*****************************************************

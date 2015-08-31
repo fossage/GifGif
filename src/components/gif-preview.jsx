@@ -3,9 +3,9 @@
 /*****************************************************
 			    INITIALIZATION BOILERPLATE
 *****************************************************/
-var React = require('react');
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
+var React 		= require('react'),
+	ReactRouter = require('react-router'),
+	Link 		= ReactRouter.Link;
 
 
 /*****************************************************
