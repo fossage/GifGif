@@ -1,5 +1,5 @@
-var React = require('react');
-var ProgressBar = require('react-bootstrap').ProgressBar;
+var React 		= require('react'),
+	ProgressBar = require('react-bootstrap').ProgressBar;
 
 module.exports = React.createClass({
 	getInitialState: function(){
@@ -15,7 +15,8 @@ module.exports = React.createClass({
   	},
 
 	render: function(){
-		return 	<div>
+		return (	
+				<div>
 					<ProgressBar
 						className={this.state.progress > 119 ? 'hidden' : ''} 
 						id="progress-bar" 
@@ -23,7 +24,7 @@ module.exports = React.createClass({
 						now={this.state.progress} 
 					/>
 					<h5 className="processing-text">{this.state.text}</h5>
-				</div>
+				</div>);
 			
 	},
 

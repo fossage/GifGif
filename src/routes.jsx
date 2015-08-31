@@ -1,29 +1,38 @@
 /*****************************************************
 			  INITIALIZATION BOILERPLATE
 *****************************************************/
-var React = require('react');
-var ReactRouter = require('react-router');
-var HashHistory = require('react-router/lib/hashhistory');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
+var React 			= require('react/addons'),
+	ReactRouter 	= require('react-router'),
+	Route 			= ReactRouter.Route,
+	Router 			= ReactRouter.Router,
+	ReactMixin 		= require('react-mixin'),
+	HashHistory 	= require('react-router/lib/hashhistory'),
+	LoginActions 	= require('./actions/login-actions');
 
-var Main = require('./components/main');
-var Category = require('./components/category');
-var GifDetail = require('./components/gif-detail');
-var GifCreator = require('./components/gif-creator');
+// Components
+var Main 			= require('./components/main'),
+	Login 			= require('./components/login'),
+	Register 		= require('./components/register'),
+	Category 		= require('./components/category'),
+	GifDetail 		= require('./components/gif-detail'),
+	GifCreator 		= require('./components/gif-creator');
 
+
+ReactMixin(Login.prototype, React.addons.LinkedStateMixin);
+ReactMixin(Register.prototype, React.addons.LinkedStateMixin);
 
 /*****************************************************
 			       MAIN CONTENT
 *****************************************************/
-
 module.exports = (
-<Router history={new HashHistory} >
-	<Route path="/" component={Main}>
-		<Route path="category/:id" component={Category} />
-		<Route path="gif/:id" component={GifDetail} />
-		<Route path="create" component={GifCreator} />
-	</Route>
-</Router>
+	<Router history={new HashHistory} >
+		<Route path="/" component={Main}>
+			<Route path="register" component={Register} />
+			<Route path="login" component={Login} />
+			<Route path="category/:id" component={Category} />
+			<Route path="gif/:id" component={GifDetail} />
+			<Route path="create" component={GifCreator} />
+		</Route>
+	</Router>
 );
 

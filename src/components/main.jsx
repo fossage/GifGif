@@ -3,9 +3,9 @@
 /*****************************************************
 			    INITIALIZATION BOILERPLATE
 *****************************************************/
-var React = require('react');
-var Header = require('./header');
-var Category = require('./category');
+var React 		= require('react'),
+	Header 		= require('./header'),
+	Category 	= require('./category');
 
 // var Auth = require('./auth0-lock.jsx');
 

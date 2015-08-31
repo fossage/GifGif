@@ -1,8 +1,8 @@
 // A text input for adding text to the user made gifs
 
-var React = require('react');
-var Input = require('react-bootstrap').Input;
-var SetGifTextAction = require('../actions/gif-creator-actions').setGifText;
+var React 				= require('react');
+	Input 				= require('react-bootstrap').Input,
+	SetGifTextAction 	= require('../actions/gif-creator-actions').setGifText;
 
 module.exports = React.createClass({
 	getInitialState: function() {
