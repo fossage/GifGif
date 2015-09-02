@@ -1,9 +1,9 @@
-var express 		= require('express'),
-	cors 			= require('cors'),
-	errorHandler 	= require('errorhandler'),
-	dotenv 			= require('dotenv'),
-	bodyParser 		= require('body-parser'),
-	logger          = require('morgan');
+var express 		  = require('express'),
+    cors 			    = require('cors'),
+    errorHandler 	= require('errorhandler'),
+    dotenv 			  = require('dotenv'),
+    bodyParser 		= require('body-parser'),
+    logger        = require('morgan');
 
 var app = express();
 

@@ -33,7 +33,7 @@ var Input 		= require('react-bootstrap').Input,
 	},
 
 	handleBlur: function(e){
-		console.log(e.target.type);
+		this.formValidator();
 	},
 
 	handleRegistration: function(e){
@@ -57,13 +57,13 @@ var Input 		= require('react-bootstrap').Input,
 				<div className="register jumbotron center-block">
 					<form role="form">
 						<div className="form-group">
-							<Input type="text" onBlur={this.handleBlur} valueLink={this.linkState('user_name')} placeholder="enter username..." label="Username"/>
+							<Input type="text" id="user_name" onBlur={this.handleBlur} valueLink={this.linkState('user_name')} placeholder="enter username..." label="Username"/>
 							<Alert bsSize='xs' className={ this.classSetter(this.state.user_name_error)} bsStyle='danger'>{this.state.user_name_error}</Alert>
-							<Input type="email" onBlur={this.handleBlur} valueLink={this.linkState('email')} placeholder="enter email..." label="Email"/>
+							<Input type="email" id="email" onBlur={this.handleBlur} valueLink={this.linkState('email')} placeholder="enter email..." label="Email"/>
 							<Alert bsSize='xs' className={ this.classSetter(this.state.email_error)} bsStyle='danger'>{this.state.email_error}</Alert>
-							<Input type="password" valueLink={this.linkState('password')} placeholder="enter password..." label="Password"/>
+							<Input type="password" id="password" valueLink={this.linkState('password')} placeholder="enter password..." label="Password"/>
 							<Alert bsSize='xs' className={ this.classSetter(this.state.password_error)} bsStyle='danger'>{this.state.password_error}</Alert>
-							<Input type="password" valueLink={this.linkState('password_conf')} placeholder="confirm password..." label="Confirm Password"/>
+							<Input type="password" id="password_conf" valueLink={this.linkState('password_conf')} placeholder="repeat password..." label="Confirm Password"/>
 							<Alert bsSize='xs' className={ this.classSetter(this.state.password_conf_error)} bsStyle='danger'>{this.state.password_conf_error}</Alert>
 						</div>
 						<Button bsStyle="success" onClick={this.handleRegistration}>Submit</Button>
@@ -79,8 +79,9 @@ var Input 		= require('react-bootstrap').Input,
 		
 	},
 
-	formValidator: function(){
+	formValidator: function(id){
 		var toggle = true;
+		
 		if(this.state.user_name.length < 6) {
 			this.setState({user_name_error: "username must be at least 6 characters..."});
 			toggle = false;
